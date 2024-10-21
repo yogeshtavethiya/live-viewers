@@ -1,58 +1,44 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const TrackerPage = () => {
-  const [websiteUrl, setWebsiteUrl] = useState("");
-  const [viewers, setViewers] = useState(0);
+  const [websiteUrl, setWebsiteUrl] = useState('');
+  const [generatedScript, setGeneratedScript] = useState('');
 
-  const API_URL = process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:5000/api';
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleGenerateScript = async () => {
     if (!websiteUrl.trim()) return;
 
     try {
-      const response = await fetch(`${API_URL}/track`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ websiteUrl }),
-      });
-
-      const data = await response.json();
-      console.log(data);
-      setViewers(data.liveViewers);
+      const response = await axios.get(`http://localhost:5001/generate-script?websiteUrl=${encodeURIComponent(websiteUrl)}`);
+      setGeneratedScript(response.data);
     } catch (error) {
-      console.error(error);
+      console.error('Error generating script:', error);
     }
   };
 
-  useEffect(() => {
-    if (!websiteUrl.trim()) return;
-
-    setInterval(async () => {
-      try {
-        const response = await fetch(`/api/viewers?websiteUrl=${encodeURIComponent(websiteUrl)}`)
-        const data = await response.json();
-        setViewers(data.liveViewers);
-      } catch (error) {
-        console.error(error);
-      }
-    }, 5000);
-
-    // return () => clearInterval(interval);
-  }, [websiteUrl]);
-
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter URL"
-          value={websiteUrl}
-          onChange={(e) => setWebsiteUrl(e.target.value)}
-        />
-        <button type="submit">Track</button>
-      </form>
-      <h2>Live Viewers: {viewers}</h2>
+      <h2>Enter your website to generate the live viewers tracking script</h2>
+      <input
+        type="text"
+        placeholder="Enter website URL"
+        value={websiteUrl}
+        onChange={(e) => setWebsiteUrl(e.target.value)}
+      />
+      <button onClick={handleGenerateScript}>Generate Script</button>
+
+      {generatedScript && (
+        <div>
+          <h3>Copy and paste this script into your website's HTML:</h3>
+          <textarea
+            rows="10"
+            cols="80"
+            value={generatedScript}
+            readOnly
+            style={{ whiteSpace: 'pre', fontFamily: 'monospace', margin: '20px 0', padding: '10px' }}
+          />
+        </div>
+      )}
     </div>
   );
 };
