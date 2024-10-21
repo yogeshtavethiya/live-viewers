@@ -4,7 +4,9 @@ import TrackerPage from "./Components/TrackerPage";
 function App() {
   return (
     <>
-      <TrackerPage />
+      <div className="main-container">
+        <TrackerPage />
+      </div>
     </>
   );
 }

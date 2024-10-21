@@ -1,0 +1,6 @@
+.tracker-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px red blue;
+}

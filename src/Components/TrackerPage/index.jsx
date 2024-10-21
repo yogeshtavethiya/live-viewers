@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './styles.css'
 
 const TrackerPage = () => {
   const [websiteUrl, setWebsiteUrl] = useState('');
@@ -17,8 +18,8 @@ const TrackerPage = () => {
   };
 
   return (
-    <div>
-      <h2>Enter your website to generate the live viewers tracking script</h2>
+    <div className='tracker-container'>
+      <h2>Enter URL</h2>
       <input
         type="text"
         placeholder="Enter website URL"
