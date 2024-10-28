@@ -30,12 +30,19 @@
     padding: 4px;
     border: 1px solid #63e;
     border-radius: 5px;
-    width: 100px;
+    width: 10%;
     height: 50px;
-    font: 12px 'Inter', sans-serif;
+    font: 16px 'Inter', sans-serif;
     font-weight: 600;
     margin: 5px;
     background-color: #e0d7fc;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s;
+
+    &:hover {
+        opacity: 1
+    }
 }
 
 .script-container{
