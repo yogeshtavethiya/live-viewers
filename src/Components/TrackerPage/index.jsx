@@ -19,17 +19,22 @@ const TrackerPage = () => {
 
   return (
     <div className='tracker-container'>
-      <h2>Enter URL</h2>
-      <input
-        type="text"
-        placeholder="Enter website URL"
-        value={websiteUrl}
-        onChange={(e) => setWebsiteUrl(e.target.value)}
-      />
-      <button onClick={handleGenerateScript}>Generate Script</button>
+      <div className='form'>
+        <h2>Enter URL</h2>
+        <div className="input-container">
+          <input
+            className='input'
+            type="text"
+            placeholder="Enter website URL"
+            value={websiteUrl}
+            onChange={(e) => setWebsiteUrl(e.target.value)}
+          />
+          <button className='generate-btn' onClick={handleGenerateScript}>Generate Script</button>
+        </div>
+      </div>
 
       {generatedScript && (
-        <div>
+        <div className='script-container'>
           <h3>Copy and paste this script into your website's HTML:</h3>
           <textarea
             rows="10"

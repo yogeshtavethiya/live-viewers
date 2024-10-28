@@ -1,6 +1,46 @@
 .tracker-container{
     display: flex;
     justify-content: center;
+    flex-direction: column;
+}
+
+.form{
+    text-align: center;
+}
+
+.input-container{
+    display: flex;
+    justify-content: center;
     align-items: center;
-    border: 2px red blue;
+}
+
+.input{
+    width: 40%;
+    height: 28px;
+    font: 12px 'Inter', sans-serif;
+    padding: 10px;
+    border: 1px solid #63e;
+    border-radius: 5px;
+
+    &:focus{
+        outline: none;
+    }
+}
+.generate-btn{
+    padding: 4px;
+    border: 1px solid #63e;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    font: 12px 'Inter', sans-serif;
+    font-weight: 600;
+    margin: 5px;
+    background-color: #e0d7fc;
+}
+
+.script-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

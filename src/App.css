@@ -10,9 +10,6 @@
 .main-container{
   background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #63e);
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
