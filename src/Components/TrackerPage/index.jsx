@@ -35,13 +35,13 @@ const TrackerPage = () => {
 
       {generatedScript && (
         <div className='script-container'>
-          <h3>Copy and paste this script into your website's HTML:</h3>
+          <h3>Inject this script into your website's HTML:</h3>
           <textarea
             rows="10"
             cols="80"
             value={generatedScript}
             readOnly
-            style={{ whiteSpace: 'pre', fontFamily: 'monospace', margin: '20px 0', padding: '10px' }}
+            className='script-text'
           />
         </div>
       )}
