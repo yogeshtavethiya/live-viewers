@@ -32,7 +32,6 @@ app.get('/generate-script', (req, res) => {
         ws.onmessage = (event) => {
           const data = JSON.parse(event.data);
           if (data.type === "viewersUpdate" && data.websiteUrl === websiteUrl) {
-            console.log("Live Viewers:", data.viewers);
             const popup = document.createElement("div");
             popup.style.position = "fixed";
             popup.style.bottom = "20px";
