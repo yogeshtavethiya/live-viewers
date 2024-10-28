@@ -17,14 +17,15 @@
     "web-vitals": "^2.1.4",
     "ws": "^8.18.0"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "server": "node src/server.js",
-    "all": "npm run server & npm run start"
-  },
+"scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject",
+  "server": "node src/server.js",
+  "all": "npm run server & npm run start",
+  "start:prod": "npm run build && npm run server"
+},
   "eslintConfig": {
     "extends": [
       "react-app",
